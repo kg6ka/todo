@@ -16,7 +16,8 @@ export class AddItemComponent {
 
     addI(input: any) {
         let titleItem = input.value;
-        if(titleItem) this.ItemsService.addItem(new Item(titleItem)).then(item => console.log(item));
+        if(titleItem) this.ItemsService.addItem(new Item(titleItem))
+            .then(item => console.log(item));
         // if(titleItem) this.createItem.emit(new Item(titleItem));
         input.value = '';
         return;

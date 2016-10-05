@@ -19,7 +19,8 @@ var AddItemComponent = (function () {
     AddItemComponent.prototype.addI = function (input) {
         var titleItem = input.value;
         if (titleItem)
-            this.ItemsService.addItem(new item_1.Item(titleItem)).then(function (item) { return console.log(item); });
+            this.ItemsService.addItem(new item_1.Item(titleItem))
+                .then(function (item) { return console.log(item); });
         // if(titleItem) this.createItem.emit(new Item(titleItem));
         input.value = '';
         return;
