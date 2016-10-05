@@ -19,6 +19,7 @@ var header_component_1 = require('./components/header/header.component');
 var item_list_component_1 = require('./components/item-list/item-list.component');
 var item_component_1 = require('./components/item/item.component');
 var add_item_component_1 = require('./components/add-item/add-item.component');
+var home_component_1 = require('./components/home-view/home.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -35,7 +36,8 @@ var AppModule = (function () {
                 header_component_1.HeaderComponent,
                 item_list_component_1.ItemListComponent,
                 item_component_1.ItemComponent,
-                add_item_component_1.AddItemComponent
+                add_item_component_1.AddItemComponent,
+                home_component_1.HomeComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

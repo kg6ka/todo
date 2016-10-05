@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+
 import { Item } from '../../models/item';
 import { ItemsService } from '../../services/items.service';
 
@@ -9,16 +10,27 @@ import { ItemsService } from '../../services/items.service';
 
 export class AddItemComponent {
     // @Output() createItem = new EventEmitter();
+    @Output() create: EventEmitter <Item>;
 
     constructor(
         private ItemsService: ItemsService
-    ) {}
+    ) {
+        this.create = new EventEmitter();
+    }
 
     addI(input: any) {
         let titleItem = input.value;
         if(titleItem) this.ItemsService.addItem(new Item(titleItem))
             .then(item => console.log(item));
         // if(titleItem) this.createItem.emit(new Item(titleItem));
+        input.value = '';
+        return;
+    }
+
+    createI(input: any) {
+        console.log('item', input.value);
+        let titleItem = input.value;
+        if(titleItem) this.create.emit(new Item(titleItem));
         input.value = '';
         return;
     }

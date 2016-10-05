@@ -1,27 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { IItem } from '../../models/item';
-
-import { ItemsService } from '../../services/items.service';
 
 @Component ({
     selector: 'item-list',
     templateUrl: './app/components/item-list/item-list.partial.html'
 })
 
-export class ItemListComponent implements OnInit {
-    items: IItem[];
+export class ItemListComponent {
+    @Input() items: IItem[];
+    @Output() toggled: EventEmitter<IItem>;
+    @Output() remove: EventEmitter<IItem>;
 
-    constructor(
-            private ItemsService: ItemsService
-        ) {
-            this.items = [];
+    constructor() {
+            this.toggled = new EventEmitter();
+            this.remove = new EventEmitter();
         }
-
-    ngOnInit() {
-        this.ItemsService.getItems()
-            .then(res => this.items = res);
-    }
 
     get sortItems() {
         return this.items
@@ -38,7 +32,13 @@ export class ItemListComponent implements OnInit {
         });
     }
 
-    onRemoveItem(item: IItem): void {
-        this.ItemsService.removeItem(item).then(item => console.log(item));
+    onItemToggle(item: IItem): void {
+        console.log('onItemToggle', item);
+        this.toggled.emit(item);
+    }
+
+    onDeleteItem(item: IItem): void {
+       console.log('onDeleteItem', item);
+        this.remove.emit(item);
     }
 }

@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { ItemComponent } from './components/item/item.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
+import { HomeComponent } from './components/home-view/home.component';
 
 @NgModule({
     imports:      [
@@ -24,7 +25,8 @@ import { AddItemComponent } from './components/add-item/add-item.component';
         HeaderComponent,
         ItemListComponent,
         ItemComponent,
-        AddItemComponent
+        AddItemComponent,
+        HomeComponent
     ],
     bootstrap:    [ AppComponent ]
 })

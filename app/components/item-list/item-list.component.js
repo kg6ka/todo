@@ -9,17 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var items_service_1 = require('../../services/items.service');
 var ItemListComponent = (function () {
-    function ItemListComponent(ItemsService) {
-        this.ItemsService = ItemsService;
-        this.items = [];
+    function ItemListComponent() {
+        this.toggled = new core_1.EventEmitter();
+        this.remove = new core_1.EventEmitter();
     }
-    ItemListComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.ItemsService.getItems()
-            .then(function (res) { return _this.items = res; });
-    };
     Object.defineProperty(ItemListComponent.prototype, "sortItems", {
         get: function () {
             return this.items
@@ -40,15 +34,32 @@ var ItemListComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    ItemListComponent.prototype.onRemoveItem = function (item) {
-        this.ItemsService.removeItem(item).then(function (item) { return console.log(item); });
+    ItemListComponent.prototype.onItemToggle = function (item) {
+        console.log('onItemToggle', item);
+        this.toggled.emit(item);
     };
+    ItemListComponent.prototype.onDeleteItem = function (item) {
+        console.log('onDeleteItem', item);
+        this.remove.emit(item);
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], ItemListComponent.prototype, "items", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], ItemListComponent.prototype, "toggled", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], ItemListComponent.prototype, "remove", void 0);
     ItemListComponent = __decorate([
         core_1.Component({
             selector: 'item-list',
             templateUrl: './app/components/item-list/item-list.partial.html'
         }), 
-        __metadata('design:paramtypes', [items_service_1.ItemsService])
+        __metadata('design:paramtypes', [])
     ], ItemListComponent);
     return ItemListComponent;
 }());

@@ -12,9 +12,9 @@ var core_1 = require('@angular/core');
 var item_1 = require('../../models/item');
 var items_service_1 = require('../../services/items.service');
 var AddItemComponent = (function () {
-    // @Output() createItem = new EventEmitter();
     function AddItemComponent(ItemsService) {
         this.ItemsService = ItemsService;
+        this.create = new core_1.EventEmitter();
     }
     AddItemComponent.prototype.addI = function (input) {
         var titleItem = input.value;
@@ -25,6 +25,18 @@ var AddItemComponent = (function () {
         input.value = '';
         return;
     };
+    AddItemComponent.prototype.createI = function (input) {
+        console.log('item', input.value);
+        var titleItem = input.value;
+        if (titleItem)
+            this.create.emit(new item_1.Item(titleItem));
+        input.value = '';
+        return;
+    };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', core_1.EventEmitter)
+    ], AddItemComponent.prototype, "create", void 0);
     AddItemComponent = __decorate([
         core_1.Component({
             selector: 'add-item',

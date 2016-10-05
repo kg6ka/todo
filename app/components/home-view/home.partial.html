@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row m-b-20">
+        <div class="col-lg-8 col-lg-offset-2">
+            <add-item (create)="createI($event)"></add-item>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <item-list [items]="items" (toggled)="onItemToggle($event)" (remove)="onDeleteItem($event)"></item-list>
+        </div>
+    </div>
+</div>

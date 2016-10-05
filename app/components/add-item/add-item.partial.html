@@ -1,6 +1,19 @@
 <div class="input-group">
     <input type="text" class="form-control" placeholder="Add Item..."
            #titleName
+           (keyup.enter)="createI(titleName)">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" (click)="createI(titleName)">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Add
+        </button>
+    </span>
+</div>
+
+<!--Use with service API-->
+<!--<div class="input-group">
+    <input type="text" class="form-control" placeholder="Add Item..."
+           #titleName
            (keyup.enter)="addI(titleName)">
     <span class="input-group-btn">
         <button class="btn btn-primary" type="button" (click)="addI(titleName)">
@@ -8,7 +21,7 @@
             Add
         </button>
     </span>
-</div>
+</div>-->
 
 <!--Use ngFrom-->
 <!--<form #f="ngForm" (submit)="addItem(itemName)" novalidate>
