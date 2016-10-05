@@ -1,0 +1,8 @@
+<ul class="list-group" *ngIf="items.length">
+    <item class="list-group-item clearfix"
+          *ngFor="let item of sortItems; let i = index"
+          [item]="item"
+          (removeItem)="onRemoveItem(item)"
+    >
+    </item>
+</ul>

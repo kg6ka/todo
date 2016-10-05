@@ -1,0 +1,12 @@
+# Logs
+*.log
+.idea
+npm-debug.log*
+
+# Dependency directories
+node_modules
+typing
+
+
+# Archives
+*.tar.gz

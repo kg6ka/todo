@@ -1,0 +1,25 @@
+<div class="input-group">
+    <input type="text" class="form-control" placeholder="Add Item..."
+           #titleName
+           (keyup.enter)="addI(titleName)">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" (click)="addI(titleName)">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Add
+        </button>
+    </span>
+</div>
+
+<!--Use ngFrom-->
+<!--<form #f="ngForm" (submit)="addItem(itemName)" novalidate>
+    <div class="input-group">
+        <input [(ngModel)]="itemName" name="item-name" type="text" class="form-control" placeholder="Search for..."
+                required>
+        <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+                Add
+            </button>
+        </span>
+    </div>
+</form>-->

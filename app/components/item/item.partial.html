@@ -1,0 +1,9 @@
+<div class="checkbox pull-left">
+    <label>
+        <input type="checkbox" (change)="toggleDone()" [checked]="item.done">
+        <strong [ngClass]="{done: item.done}" [textContent]="item.title"></strong>
+    </label>
+</div>
+<button type="button" class="btn btn-danger pull-right" (click)="removeI()">
+    <i class="fa fa-trash" aria-hidden="true"></i>
+</button>
